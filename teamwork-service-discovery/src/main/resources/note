@@ -1,0 +1,11 @@
+After creating the project and adding eureka server, spring web dependencies.
+add this to the application.yml eureka: client: register-with-eureka: false ,fetch-registry: false
+Normally, a Eureka Client tries to register itself with a Eureka Server.
+But your Eureka Server is the registry itself. It doesn't make sense for it to register with itself.
+So you tell it:
+"Don't try to register yourself."
+Hence: register-with-eureka: false
+Again, the Eureka Server already owns the registry. It doesn't need to fetch it from anywhere else.
+So: fetch-registry: false
+Also enable the Eureka Server in your main application class with "@EnableEurekaServer".
+By convention, Eureka Server runs on 8761 :Run it and verify that the Eureka dashboard opens at http://localhost:8761.
