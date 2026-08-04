@@ -1,5 +1,6 @@
 package com.steverado.user_service.controller;
 
+import com.steverado.user_service.dto.LoginUserDto;
 import com.steverado.user_service.dto.RegisterUserDto;
 import com.steverado.user_service.response.ApiResponse;
 import com.steverado.user_service.service.JwtService;
@@ -28,5 +29,10 @@ public class UserController {
     public ResponseEntity<ApiResponse> register(@Valid @RequestBody RegisterUserDto registerUserDto) {
 
         return userService.signup(registerUserDto);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<ApiResponse> login(@Valid @RequestBody LoginUserDto loginUserDto) {
+        return userService.login(loginUserDto);
     }
 }
