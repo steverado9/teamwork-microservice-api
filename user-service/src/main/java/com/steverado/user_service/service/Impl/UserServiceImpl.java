@@ -4,6 +4,8 @@ import com.steverado.user_service.dto.LoginUserDto;
 import com.steverado.user_service.dto.RegisterUserDto;
 import com.steverado.user_service.entity.User;
 import com.steverado.user_service.enums.Role;
+import com.steverado.user_service.exception.NotAdminException;
+import com.steverado.user_service.exception.UserNotFoundException;
 import com.steverado.user_service.mapper.UserMapper;
 import com.steverado.user_service.repository.UserRepository;
 import com.steverado.user_service.response.ApiResponse;
@@ -18,6 +20,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -48,10 +51,10 @@ public class UserServiceImpl implements UserService {
 
         String email = authentication.getName();
 
-        User currentUser = findUserByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
+        User currentUser = findUserByEmail(email).orElseThrow(() -> new UserNotFoundException("User not found"));
 
         if (currentUser.getRole() != Role.ADMIN) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            throw new NotAdminException("FORBIDDEN!");
         }
 
         User user = userMapper.toUserEntity(input);
@@ -67,7 +70,7 @@ public class UserServiceImpl implements UserService {
                 user.getDepartment(),
                 user.getAddress()
         );
-        User savedUser = userRepository.findByEmail(user.getEmail()).get();
+        User savedUser = userRepository.findByEmail(user.getEmail()).orElseThrow(() -> new UserNotFoundException("User not found"));
 
         CreateUserResponse data = new CreateUserResponse();
         data.setMessage("User account successfully created");
@@ -83,7 +86,7 @@ public class UserServiceImpl implements UserService {
 
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(input.getEmail(), input.getPassword()));
 
-        User authenticatedUser = userRepository.findByEmail(input.getEmail()).orElseThrow();
+        User authenticatedUser = userRepository.findByEmail(input.getEmail()).orElseThrow(() -> new UserNotFoundException("user not found"));
 
         String jwtToken = jwtService.generateToken(authenticatedUser);
 
