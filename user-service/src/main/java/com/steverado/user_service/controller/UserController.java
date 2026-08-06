@@ -2,15 +2,15 @@ package com.steverado.user_service.controller;
 
 import com.steverado.user_service.dto.LoginUserDto;
 import com.steverado.user_service.dto.RegisterUserDto;
+import com.steverado.user_service.entity.User;
 import com.steverado.user_service.response.ApiResponse;
 import com.steverado.user_service.service.JwtService;
 import com.steverado.user_service.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -23,6 +23,15 @@ public class UserController {
     public UserController(JwtService jwtService, UserService userService) {
         this.jwtService = jwtService;
         this.userService = userService;
+    }
+
+    @GetMapping("/me")
+    public User authenticatedUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        User currentUser = (User) authentication.getPrincipal();
+
+        return currentUser;
     }
 
     @PostMapping("/signup")
