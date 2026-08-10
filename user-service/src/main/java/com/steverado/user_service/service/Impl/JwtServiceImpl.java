@@ -1,5 +1,6 @@
 package com.steverado.user_service.service.Impl;
 
+import com.steverado.user_service.entity.User;
 import com.steverado.user_service.service.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -36,14 +37,14 @@ public class JwtServiceImpl implements JwtService {
     }
 
     @Override
-    public String generateToken(UserDetails userDetails) {
-        return generateToken(new HashMap<>(), userDetails);
+    public String generateToken(User user) {
+
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("userId", user.getId());
+
+        return buildToken(claims, user, jwtExpiration);
     }
 
-    @Override
-    public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
-        return buildToken(extraClaims, userDetails, jwtExpiration);
-    }
 
     @Override
     public long getExpirationTime() {
@@ -53,13 +54,13 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public String buildToken(
             Map<String, Object> extraClaims,
-            UserDetails userDetails,
+            User user,
             long expiration
     ) {
         return Jwts
                 .builder()
                 .setClaims(extraClaims)
-                .setSubject(userDetails.getUsername())
+                .setSubject(user.getEmail())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)

@@ -1,5 +1,6 @@
 package com.steverado.user_service.service;
 
+import com.steverado.user_service.entity.User;
 import io.jsonwebtoken.Claims;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -14,13 +15,11 @@ public interface JwtService {
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver);
 
-    public String generateToken(UserDetails userDetails);
-
-    public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails);
+    public String generateToken(User user);
 
     public long getExpirationTime();
 
-    String buildToken(Map<String, Object> extraClaims, UserDetails userDetails, long expiration);
+    String buildToken(Map<String, Object> extraClaims, User user, long expiration);
 
     public boolean isTokenValid(String token, UserDetails userDetails);
 

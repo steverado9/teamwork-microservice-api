@@ -10,22 +10,13 @@ import java.util.function.Function;
 
 public interface JwtService {
 
+    public Long extractUserId(String token);
 
     public String extractUsername(String token);
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver);
 
-    public String generateToken(UserDetails userDetails);
-
-    public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails);
-
-    public long getExpirationTime();
-
-    String buildToken(Map<String, Object> extraClaims,
-                      UserDetails userDetails,
-                      long expiration);
-
-    public boolean isTokenValid(String token, UserDetails userDetails);
+    public boolean isTokenValid(String token);
 
     boolean isTokenExpired(String token);
 
