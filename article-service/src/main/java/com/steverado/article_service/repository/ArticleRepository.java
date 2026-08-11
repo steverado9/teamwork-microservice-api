@@ -1,9 +1,38 @@
 package com.steverado.article_service.repository;
 
 import com.steverado.article_service.entity.Article;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
+
+    @Modifying
+    @Transactional
+    @Query(value = """
+            INSERT INTO articles (title, content, user_id, created_at)
+            VALUES (:title, :content, :userId, CURRENT_TIMESTAMP)
+            """, nativeQuery = true)
+    void saveArticle(
+            @Param("title") String title,
+            @Param("content") String content,
+            @Param("userId") Long userId
+        );
+
+    @Query(value = """
+            SELECT * FROM articles
+            WHERE user_id = :userId
+            AND id = LAST_INSERT_ID()
+            """, nativeQuery = true)
+    Optional<Article> findArticleByUserId(@Param("userId") Long userId);
+
+    @Query(value = "SELECT * FROM articles WHERE id = :articleId")
+    Optional<Article> findByArticleId(@Param("articleId") Long articleId);
 }
