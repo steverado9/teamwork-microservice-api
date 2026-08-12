@@ -33,6 +33,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
             """, nativeQuery = true)
     Optional<Article> findArticleByUserId(@Param("userId") Long userId);
 
-    @Query(value = "SELECT * FROM articles WHERE id = :articleId")
+    @Query(value = "SELECT * FROM articles WHERE id = :articleId",nativeQuery = true)
     Optional<Article> findByArticleId(@Param("articleId") Long articleId);
 }

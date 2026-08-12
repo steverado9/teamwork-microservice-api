@@ -16,4 +16,6 @@ public interface UserService {
 
 
     ResponseEntity<ApiResponse> login(LoginUserDto loginUserDto);
+
+    Optional<User> findUserById(Long id);
 }

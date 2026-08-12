@@ -25,8 +25,8 @@ public class ArticleController {
     @PutMapping("/{articleId}")
     public ResponseEntity<ApiResponse> updateArticle(
             @PathVariable Long articleId,
-            @Valid @RequestBody Article article) {
+            @Valid @RequestBody ArticleDto input) {
 
-        return articleService.updateArticle(articleId, article);
+        return articleService.updateArticle(articleId, input);
     }
 }

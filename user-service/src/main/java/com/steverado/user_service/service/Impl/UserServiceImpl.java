@@ -13,7 +13,6 @@ import com.steverado.user_service.response.CreateUserResponse;
 import com.steverado.user_service.response.LoginResponse;
 import com.steverado.user_service.service.JwtService;
 import com.steverado.user_service.service.UserService;
-import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -109,5 +108,11 @@ public class UserServiceImpl implements UserService {
         ApiResponse response = new ApiResponse("Success", data);
 
         return ResponseEntity.ok(response);
+    }
+
+    @Override
+    public Optional<User> findUserById(Long id) {
+
+        return userRepository.findUserById(id);
     }
 }

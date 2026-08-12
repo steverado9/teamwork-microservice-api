@@ -12,6 +12,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/auth")
 public class UserController {
@@ -42,6 +44,13 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<ApiResponse> login(@Valid @RequestBody LoginUserDto loginUserDto) {
+
         return userService.login(loginUserDto);
+    }
+
+    @GetMapping("/{id}")
+    public Optional<User> getUserById (@PathVariable Long id) {
+
+        return userService.findUserById(id);
     }
 }

@@ -9,5 +9,5 @@ import org.springframework.http.ResponseEntity;
 public interface ArticleService {
     ResponseEntity<ApiResponse> saveArticle(ArticleDto articleDto);
 
-    ResponseEntity<ApiResponse> updateArticle(Long articleId, Article article);
+    ResponseEntity<ApiResponse> updateArticle(Long articleId, ArticleDto input);
 }

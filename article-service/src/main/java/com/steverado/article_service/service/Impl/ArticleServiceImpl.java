@@ -2,6 +2,7 @@ package com.steverado.article_service.service.Impl;
 
 import com.steverado.article_service.dto.ArticleDto;
 import com.steverado.article_service.entity.Article;
+import com.steverado.article_service.entity.User;
 import com.steverado.article_service.mappers.ArticleMapper;
 import com.steverado.article_service.repository.ArticleRepository;
 import com.steverado.article_service.response.ApiResponse;
@@ -14,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 @Service
@@ -25,6 +27,8 @@ public class ArticleServiceImpl implements ArticleService {
     private final ArticleMapper articleMapper;
 
     private final ArticleRepository articleRepository;
+
+    private final RestTemplate restTemplate;
 
     //get user id
     private Long getUserId() {
@@ -60,16 +64,22 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public ResponseEntity<ApiResponse> updateArticle(Long articleId, Article article) {
+    public ResponseEntity<ApiResponse> updateArticle(Long articleId, ArticleDto article) {
 
         //get existing article with id
         Article existingArticle = getArticleById(articleId).orElseThrow();
 
-        Long existingArticleUserId = existingArticle.getUserId();
+//        Long existingArticleUserId = existingArticle.getUserId();
 
         Long currentUserId = getUserId();
 
+        String url = "http://user-service/auth/" + currentUserId;
 
+        System.out.println("Calling User Service: " + url);
+
+        User user = restTemplate.getForObject("http://user-service/auth/" + currentUserId, User.class);
+
+        System.out.println("user -> : " + user);
         return null;
     }
 

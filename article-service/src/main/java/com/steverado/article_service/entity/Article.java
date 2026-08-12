@@ -2,6 +2,7 @@ package com.steverado.article_service.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,7 +30,7 @@ public class Article {
     private String content;
 
     //Many articles can belong to one user
-    @NotBlank(message = "user id field should not be empty")
+    @NotNull(message = "user id field should not be empty")
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
