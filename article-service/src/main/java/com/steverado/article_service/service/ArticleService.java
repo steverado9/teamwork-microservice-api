@@ -10,4 +10,6 @@ public interface ArticleService {
     ResponseEntity<ApiResponse> saveArticle(ArticleDto articleDto);
 
     ResponseEntity<ApiResponse> updateArticle(Long articleId, ArticleDto input);
+
+    ResponseEntity<ApiResponse> deleteArticle(Long articleId);
 }

@@ -35,4 +35,21 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 
     @Query(value = "SELECT * FROM articles WHERE id = :articleId",nativeQuery = true)
     Optional<Article> findByArticleId(@Param("articleId") Long articleId);
+
+    @Modifying
+    @Transactional
+    @Query(value = """
+            UPDATE articles
+            SET title = :title, content = :content, created_at = CURRENT_TIMESTAMP
+            WHERE id = :userId
+            """, nativeQuery = true)
+    void updateArticle(
+            @Param("title") String title,
+            @Param("content") String content,
+            @Param("userId") Long existingUserId);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM articles WHERE id = :articleId", nativeQuery = true)
+    void deleteArticleById(@Param("articleId") Long articleId);
 }
