@@ -47,6 +47,38 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.findByArticleId(articleId);
     }
 
+//    private Exception isAdminOrCreator(Long articleId) {
+//        //get existing article with id
+//        Article existingArticle = getArticleById(articleId).orElseThrow();
+//
+//        Long existingUserId = existingArticle.getUserId();
+//
+//        Long currentUserId = getUserId();
+//
+//        String url = "http://user-service/auth/" + currentUserId;
+//
+//        String authorizationHeader = request.getHeader("Authorization");
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.set("Authorization", authorizationHeader);
+//
+//        HttpEntity<Void> entity = new HttpEntity<>(headers);
+//
+//        try {
+//            ResponseEntity<User> response = restTemplate.exchange(url, HttpMethod.GET, entity, User.class);
+//
+//            User user = response.getBody();
+//
+//            if (user.getRole() != Role.ADMIN && user.getId() != existingUserId) {
+//                return new NotAdminException("FORBIDDEN!");
+//            }
+//        } catch (Exception e) {
+//            System.out.println("error getting user -> : " + e.getMessage());
+//            return e;
+//        }
+//        return null;
+//    }
+
     @Override
     public ResponseEntity<ApiResponse> saveArticle(ArticleDto articleDto) {
 
@@ -153,5 +185,6 @@ public class ArticleServiceImpl implements ArticleService {
 
         return  ResponseEntity.ok(response);
     }
-
 }
+
+

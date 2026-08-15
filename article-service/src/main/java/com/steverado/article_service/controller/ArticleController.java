@@ -1,6 +1,7 @@
 package com.steverado.article_service.controller;
 
 import com.steverado.article_service.dto.ArticleDto;
+import com.steverado.article_service.dto.CommentDto;
 import com.steverado.article_service.entity.Article;
 import com.steverado.article_service.response.ApiResponse;
 import com.steverado.article_service.service.ArticleService;
@@ -35,5 +36,10 @@ public class ArticleController {
     public ResponseEntity<ApiResponse> deleteArticle(@PathVariable Long articleId) {
 
         return articleService.deleteArticle(articleId);
+    }
+
+    public ResponseEntity<ApiResponse> addComment(@PathVariable Long articleId, @Valid @RequestBody CommentDto commentDto) {
+
+        return articleCommentService;
     }
 }
