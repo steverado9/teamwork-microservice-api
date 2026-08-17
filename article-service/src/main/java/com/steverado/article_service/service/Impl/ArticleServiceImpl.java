@@ -37,13 +37,18 @@ public class ArticleServiceImpl implements ArticleService {
     private final HttpServletRequest request;
 
     //get user id
-    private Long getUserId() {
+    public Long getUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return (Long) authentication.getPrincipal();
     }
 
+    @Override
+    public ResponseEntity<ApiResponse> getArticleAndCommentById(Long articleId) {
+        return null;
+    }
+
     //get article by id
-    private Optional<Article> getArticleById(Long articleId) {
+    public Optional<Article> getArticleById(Long articleId) {
         return articleRepository.findByArticleId(articleId);
     }
 

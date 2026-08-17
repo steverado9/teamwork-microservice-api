@@ -1,0 +1,26 @@
+package com.steverado.article_service.repository;
+
+import com.steverado.article_service.entity.ArticleComment;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.Optional;
+
+public interface ArticleCommentRepository extends JpaRepository<ArticleComment, Long> {
+    @Query(value = """
+            INSERT INTO article_comments(comment, article_id, user_id, created_at)
+            VALUE ( :comment, :articleId, :userId, CURRENT_TIMESTAMP)
+            """, nativeQuery = true)
+    void saveComment(
+            @Param("comment") String comment,
+            @Param("articleId") Long articleId,
+            @Param("userId") Long userId);
+
+    @Query(value = """
+            SELECT * FROM article_comments
+            WHERE article_id = :articleId
+            AND comment_id = LAST_INSERT_ID();
+            """, nativeQuery = true)
+    Optional<ArticleComment> getArticleCommentByArticleId(@Param("articleId") Long id);
+}

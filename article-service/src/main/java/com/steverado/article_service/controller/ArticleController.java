@@ -4,6 +4,7 @@ import com.steverado.article_service.dto.ArticleDto;
 import com.steverado.article_service.dto.CommentDto;
 import com.steverado.article_service.entity.Article;
 import com.steverado.article_service.response.ApiResponse;
+import com.steverado.article_service.service.ArticleCommentService;
 import com.steverado.article_service.service.ArticleService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 public class ArticleController {
 
     private final ArticleService articleService;
+
+    private final ArticleCommentService articleCommentService;
 
     @PostMapping()
     public ResponseEntity<ApiResponse> createArticle(@Valid @RequestBody ArticleDto articleDto) {
@@ -38,8 +41,14 @@ public class ArticleController {
         return articleService.deleteArticle(articleId);
     }
 
+    @PostMapping("/{articleId}/comments")
     public ResponseEntity<ApiResponse> addComment(@PathVariable Long articleId, @Valid @RequestBody CommentDto commentDto) {
 
-        return articleCommentService;
+        return articleCommentService.saveComment(articleId, commentDto);
+    }
+
+    @GetMapping("/{articleId}")
+    public ResponseEntity<ApiResponse> viewArticle(@PathVariable Long articleId) {
+        return articleService.getArticleAndCommentById(articleId);
     }
 }
