@@ -1,10 +1,12 @@
 package com.steverado.article_service.repository;
 
+import com.steverado.article_service.entity.Article;
 import com.steverado.article_service.entity.ArticleComment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ArticleCommentRepository extends JpaRepository<ArticleComment, Long> {
@@ -23,4 +25,11 @@ public interface ArticleCommentRepository extends JpaRepository<ArticleComment, 
             AND comment_id = LAST_INSERT_ID();
             """, nativeQuery = true)
     Optional<ArticleComment> getArticleCommentByArticleId(@Param("articleId") Long id);
+
+    @Query(value = """
+            SELECT * FROM article_comments
+            WHERE article_id = :articleId
+            ORDER BY created_at DESC
+            """, nativeQuery = true)
+    List<ArticleComment> getAllCommentsByArticleId(@Param("articleId") Long articleId);
 }

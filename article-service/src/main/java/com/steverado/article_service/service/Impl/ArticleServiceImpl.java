@@ -1,16 +1,17 @@
 package com.steverado.article_service.service.Impl;
 
 import com.steverado.article_service.dto.ArticleDto;
+import com.steverado.article_service.dto.CommentItemsDto;
 import com.steverado.article_service.entity.Article;
+import com.steverado.article_service.entity.ArticleComment;
 import com.steverado.article_service.entity.User;
 import com.steverado.article_service.enums.Role;
 import com.steverado.article_service.exception.NotAdminException;
 import com.steverado.article_service.mappers.ArticleMapper;
+import com.steverado.article_service.mappers.CommentItemsMapper;
+import com.steverado.article_service.repository.ArticleCommentRepository;
 import com.steverado.article_service.repository.ArticleRepository;
-import com.steverado.article_service.response.ApiResponse;
-import com.steverado.article_service.response.DataArticleResponse;
-import com.steverado.article_service.response.DeleteDataResponse;
-import com.steverado.article_service.response.UpdateArticleDataResponse;
+import com.steverado.article_service.response.*;
 import com.steverado.article_service.service.ArticleService;
 import com.steverado.article_service.service.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 @RequiredArgsConstructor
@@ -30,21 +32,20 @@ public class ArticleServiceImpl implements ArticleService {
 
     private final ArticleMapper articleMapper;
 
+    private final CommentItemsMapper commentItemsMapper;
+
     private final ArticleRepository articleRepository;
 
     private final RestTemplate restTemplate;
 
     private final HttpServletRequest request;
 
+    private final ArticleCommentRepository commentRepository;
+
     //get user id
     public Long getUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return (Long) authentication.getPrincipal();
-    }
-
-    @Override
-    public ResponseEntity<ApiResponse> getArticleAndCommentById(Long articleId) {
-        return null;
     }
 
     //get article by id
@@ -181,6 +182,7 @@ public class ArticleServiceImpl implements ArticleService {
             System.out.println("error getting user -> : " + e.getMessage());
         }
 
+//        commentRepository.delete
         articleRepository.deleteArticleById(articleId);
 
         DeleteDataResponse data = new DeleteDataResponse();
@@ -189,6 +191,31 @@ public class ArticleServiceImpl implements ArticleService {
         ApiResponse response = new ApiResponse("Success", data);
 
         return  ResponseEntity.ok(response);
+    }
+
+    @Override
+    public ResponseEntity<ApiResponse> getArticleAndCommentById(Long articleId) {
+
+        Article article = getArticleById(articleId).orElseThrow();
+
+        List<ArticleComment> comments = commentRepository.getAllCommentsByArticleId(articleId);
+
+        List<CommentItemsDto> articleComments =
+                comments.stream()
+                        .map(commentItemsMapper::articleComment)
+                        .toList();
+
+        DataViewArticleResponse data = new DataViewArticleResponse();
+        data.setId(article.getId());
+        data.setCreatedOn(article.getCreatedAt());
+        data.setTitle(article.getTitle());
+        data.setArticle(article.getContent());
+        data.setComments(articleComments);
+
+        ApiResponse response = new ApiResponse("success", data);
+
+
+        return ResponseEntity.ok(response);
     }
 }
 
