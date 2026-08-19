@@ -1,0 +1,3 @@
+// const responseJson = pm.response.json();
+// pm.setEnviromentVariable("acessToken",
+// responseJson.data.token);
