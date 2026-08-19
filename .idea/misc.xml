@@ -4,7 +4,10 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/gif-service/pom.xml" />
+=======
+>>>>>>> fe30fbc2a1bd1887e71828b7b30ebf900ef75c16
         <option value="$PROJECT_DIR$/user-service/pom.xml" />
         <option value="$PROJECT_DIR$/article-service/pom.xml" />
         <option value="$PROJECT_DIR$/teamwork-service-discovery/pom.xml" />
