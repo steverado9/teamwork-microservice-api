@@ -1,4 +1,4 @@
-package com.steverado9.gif_service;
+package com.steverado.gif_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -182,11 +182,7 @@ public class ArticleServiceImpl implements ArticleService {
             System.out.println("error getting user -> : " + e.getMessage());
         }
 
-<<<<<<< HEAD
         commentRepository.deleteCommentsByArticleId(articleId);
-=======
-//        commentRepository.delete
->>>>>>> fe30fbc2a1bd1887e71828b7b30ebf900ef75c16
         articleRepository.deleteArticleById(articleId);
 
         DeleteDataResponse data = new DeleteDataResponse();
@@ -218,10 +214,6 @@ public class ArticleServiceImpl implements ArticleService {
 
         ApiResponse response = new ApiResponse("success", data);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> fe30fbc2a1bd1887e71828b7b30ebf900ef75c16
         return ResponseEntity.ok(response);
     }
 }

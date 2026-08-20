@@ -1,4 +1,4 @@
-package com.steverado9.gif_service.config;
+package com.steverado.gif_service.config;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,16 +1,8 @@
 package com.steverado.article_service.service;
 
 import io.jsonwebtoken.Claims;
-<<<<<<< HEAD
 import java.security.Key;
 import java.util.Date;
-=======
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.security.Key;
-import java.util.Date;
-import java.util.Map;
->>>>>>> fe30fbc2a1bd1887e71828b7b30ebf900ef75c16
 import java.util.function.Function;
 
 public interface JwtService {

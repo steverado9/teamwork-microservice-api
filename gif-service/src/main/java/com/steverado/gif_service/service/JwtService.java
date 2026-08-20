@@ -1,4 +1,4 @@
-package com.steverado9.gif_service.service;
+package com.steverado.gif_service.service;
 
 import io.jsonwebtoken.Claims;
 

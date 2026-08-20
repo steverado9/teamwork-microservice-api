@@ -155,14 +155,11 @@
 									<artifactId>lombok</artifactId>
 								</path>
 								<path>
-<<<<<<< HEAD
 									<groupId>org.projectlombok</groupId>
 									<artifactId>lombok-mapstruct-binding</artifactId>
 									<version>0.2.0</version>
 								</path>
 								<path>
-=======
->>>>>>> fe30fbc2a1bd1887e71828b7b30ebf900ef75c16
 									<groupId>org.mapstruct</groupId>
 									<artifactId>mapstruct-processor</artifactId>
 									<version>${org.mapstruct.version}</version>
@@ -182,7 +179,6 @@
 									<groupId>org.projectlombok</groupId>
 									<artifactId>lombok</artifactId>
 								</path>
-<<<<<<< HEAD
 
 								<path>
 									<groupId>org.projectlombok</groupId>
@@ -195,8 +191,6 @@
 									<artifactId>mapstruct-processor</artifactId>
 									<version>${org.mapstruct.version}</version>
 								</path>
-=======
->>>>>>> fe30fbc2a1bd1887e71828b7b30ebf900ef75c16
 							</annotationProcessorPaths>
 						</configuration>
 					</execution>
