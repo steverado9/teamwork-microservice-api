@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,5 +23,10 @@ public class GifController {
             @RequestPart MultipartFile file
     ) {
         return gifService.saveGif(gifDto, file);
+    }
+
+    public ResponseEntity<ApiResponse> deleteGif(@PathVariable Long id) {
+
+        return gifService.deleteGifById(id);
     }
 }

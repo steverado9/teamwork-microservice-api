@@ -1,4 +1,4 @@
-package com.steverado.article_service.util;
+package com.steverado.gif_service.util;
 
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.multipart.MultipartFile;

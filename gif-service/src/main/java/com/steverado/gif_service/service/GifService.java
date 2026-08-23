@@ -8,4 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface GifService {
     ResponseEntity<ApiResponse> saveGif(GifDto gifDto, MultipartFile file);
+
+    ResponseEntity<ApiResponse> deleteGifById(Long id);
 }
