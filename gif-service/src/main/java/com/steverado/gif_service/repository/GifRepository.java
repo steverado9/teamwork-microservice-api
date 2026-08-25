@@ -30,4 +30,9 @@ public interface GifRepository extends JpaRepository<Gif, Long> {
 
     @Query(value = "SELECT * FROM gifs WHERE id = :gifId", nativeQuery = true)
     Optional<Gif> findGifById(@Param("gifId") Long id);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM gifs WHERE id = :gifId", nativeQuery = true)
+    void deleteGifById(@Param("gifId") Long id);
 }

@@ -1,15 +1,15 @@
 package com.steverado.gif_service.controller;
 
+import com.steverado.gif_service.dto.CommentDto;
 import com.steverado.gif_service.dto.GifDto;
 import com.steverado.gif_service.reponse.ApiResponse;
+import com.steverado.gif_service.service.GifCommentService;
 import com.steverado.gif_service.service.GifService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
@@ -18,6 +18,10 @@ public class GifController {
 
     private final GifService gifService;
 
+    private final GifCommentService gifCommentService;
+
+    //post gif
+    @PostMapping(path = "/gifs",  consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     private ResponseEntity<ApiResponse> postGif(
             @Valid @ModelAttribute GifDto gifDto,
             @RequestPart MultipartFile file
@@ -25,8 +29,22 @@ public class GifController {
         return gifService.saveGif(gifDto, file);
     }
 
+    //delete gif
+    @DeleteMapping("/gifs/{id}")
     public ResponseEntity<ApiResponse> deleteGif(@PathVariable Long id) {
 
         return gifService.deleteGifById(id);
+    }
+
+    //post comments on gif
+    @PostMapping("/gifs/{gifId}/comment")
+    public ResponseEntity<ApiResponse> postComment(@PathVariable Long gifId, @Valid @RequestBody CommentDto commentDto) {
+        return gifCommentService.postComment(gifId, commentDto);
+    }
+
+    //view gif with comments
+    @GetMapping("gifs/{gifId}")
+    public ResponseEntity<ApiResponse> viewGif(@PathVariable Long gifId) {
+        return gifService.getGifAndCommentByGifId(gifId);
     }
 }
