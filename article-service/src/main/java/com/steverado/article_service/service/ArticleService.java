@@ -3,9 +3,9 @@ package com.steverado.article_service.service;
 import com.steverado.article_service.dto.ArticleDto;
 import com.steverado.article_service.entity.Article;
 import com.steverado.article_service.response.ApiResponse;
-import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ArticleService {
@@ -20,4 +20,6 @@ public interface ArticleService {
     Long getUserId();
 
     ResponseEntity<ApiResponse> getArticleAndCommentById(Long articleId);
+
+    List<Article> getAllArticles();
 }

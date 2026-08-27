@@ -2,6 +2,7 @@ package com.steverado.gif_service.controller;
 
 import com.steverado.gif_service.dto.CommentDto;
 import com.steverado.gif_service.dto.GifDto;
+import com.steverado.gif_service.entity.Gif;
 import com.steverado.gif_service.reponse.ApiResponse;
 import com.steverado.gif_service.service.GifCommentService;
 import com.steverado.gif_service.service.GifService;
@@ -11,6 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -46,5 +49,11 @@ public class GifController {
     @GetMapping("gifs/{gifId}")
     public ResponseEntity<ApiResponse> viewGif(@PathVariable Long gifId) {
         return gifService.getGifAndCommentByGifId(gifId);
+    }
+
+    //get all gifs
+    @GetMapping()
+    public List<Gif> viewAllGifs() {
+        return gifService.getAllGifs();
     }
 }

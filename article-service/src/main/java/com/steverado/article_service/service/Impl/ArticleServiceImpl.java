@@ -216,6 +216,11 @@ public class ArticleServiceImpl implements ArticleService {
 
         return ResponseEntity.ok(response);
     }
+
+    @Override
+    public List<Article> getAllArticles() {
+        return articleRepository.findAllArticles();
+    }
 }
 
 

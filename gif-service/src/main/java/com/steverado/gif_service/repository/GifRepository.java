@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface GifRepository extends JpaRepository<Gif, Long> {
@@ -35,4 +36,7 @@ public interface GifRepository extends JpaRepository<Gif, Long> {
     @Modifying
     @Query(value = "DELETE FROM gifs WHERE id = :gifId", nativeQuery = true)
     void deleteGifById(@Param("gifId") Long id);
+
+    @Query(value = "SELECT * FROM gifs", nativeQuery = true)
+    List<Gif> findAllGifs();
 }

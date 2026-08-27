@@ -2,6 +2,7 @@ package com.steverado.article_service.controller;
 
 import com.steverado.article_service.dto.ArticleDto;
 import com.steverado.article_service.dto.CommentDto;
+import com.steverado.article_service.entity.Article;
 import com.steverado.article_service.response.ApiResponse;
 import com.steverado.article_service.service.ArticleCommentService;
 import com.steverado.article_service.service.ArticleService;
@@ -9,6 +10,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -48,5 +51,10 @@ public class ArticleController {
     @GetMapping("/{articleId}")
     public ResponseEntity<ApiResponse> viewArticle(@PathVariable Long articleId) {
         return articleService.getArticleAndCommentById(articleId);
+    }
+
+    @GetMapping()
+    public List<Article> viewAllArticles() {
+        return articleService.getAllArticles();
     }
 }

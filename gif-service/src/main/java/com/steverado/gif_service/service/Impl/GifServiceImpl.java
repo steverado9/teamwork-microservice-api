@@ -141,4 +141,9 @@ public class GifServiceImpl implements GifService {
 
         return null;
     }
+
+    @Override
+    public List<Gif> getAllGifs() {
+        return gifRepository.findAllGifs();
+    }
 }
