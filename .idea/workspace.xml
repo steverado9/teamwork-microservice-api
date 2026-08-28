@@ -5,30 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5467d915-fb60-47ad-95be-45bd16857e0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/config/ApplicationConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/config/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/config/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/config/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/controller/FeedController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/dto/FeedItemDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/entity/Article.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/entity/Gif.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/mapper/FeedMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/response/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/service/FeedService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/service/Impl/FeedServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/service/Impl/JwtServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/controller/ArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/repository/ArticleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/repository/ArticleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/service/ArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/service/ArticleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/service/Impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/service/Impl/ArticleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/repository/GifRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/repository/GifRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/service/GifService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/service/GifService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/service/Impl/GifServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/service/Impl/GifServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/steverado/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/steverado/user_service/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +40,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ArticleServiceApplication.executor": "Run",
+    "Application.FeedServiceApplication.executor": "Run",
+    "Application.GifServiceApplication.executor": "Run",
+    "Application.TeamworkServiceDiscoveryApplication.executor": "Run",
+    "Application.UserServiceApplication.executor": "Run",
     "Maven.feed-service [clean,install].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -71,6 +57,108 @@
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RunManager" selected="Application.FeedServiceApplication">
+    <configuration name="ArticleServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="security.jwt.secret-key" value="3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007" />
+        <env name="security.jwt.expiration-time" value="3600000" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.steverado.article_service.ArticleServiceApplication" />
+      <module name="article-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.steverado.article_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FeedServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="security.jwt.secret-key" value="3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007" />
+        <env name="security.jwt.expiration-time" value="3600000" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.steverado.feed_service.FeedServiceApplication" />
+      <module name="feed-service.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.steverado.feed_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GifServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="security.jwt.expiration-time" value="3600000" />
+        <env name="security.jwt.secret-key" value="3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007" />
+        <env name="cloud_name" value="dqyctehvd" />
+        <env name="api_secret" value="8Rf1XhTDcUQdVDPwmSwJ8f_ZoUU" />
+        <env name="api_key" value="679223967836894" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.steverado.gif_service.GifServiceApplication" />
+      <module name="gif-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.steverado.gif_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TeamworkServiceDiscoveryApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.steverado.teamwork_service_discovery.TeamworkServiceDiscoveryApplication" />
+      <module name="teamwork-service-discovery" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.steverado.teamwork_service_discovery.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="security.jwt.secret-key" value="3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007" />
+        <env name="security.jwt.expiration-time" value="3600000" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.steverado.user_service.UserServiceApplication" />
+      <module name="user-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.steverado.user_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.FeedServiceApplication" />
+      <item itemvalue="Application.GifServiceApplication" />
+      <item itemvalue="Application.ArticleServiceApplication" />
+      <item itemvalue="Application.TeamworkServiceDiscoveryApplication" />
+      <item itemvalue="Application.UserServiceApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.FeedServiceApplication" />
+        <item itemvalue="Application.GifServiceApplication" />
+        <item itemvalue="Application.ArticleServiceApplication" />
+        <item itemvalue="Application.UserServiceApplication" />
+        <item itemvalue="Application.TeamworkServiceDiscoveryApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="5467d915-fb60-47ad-95be-45bd16857e0b" name="Changes" comment="" />

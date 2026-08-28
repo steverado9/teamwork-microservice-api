@@ -7,6 +7,7 @@ import com.steverado.user_service.response.ApiResponse;
 import com.steverado.user_service.service.JwtService;
 import com.steverado.user_service.service.UserService;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,14 +17,12 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
+@Slf4j
 public class UserController {
-
-    private final JwtService jwtService;
 
     private final UserService userService;
 
-    public UserController(JwtService jwtService, UserService userService) {
-        this.jwtService = jwtService;
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
