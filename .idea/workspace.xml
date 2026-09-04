@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5467d915-fb60-47ad-95be-45bd16857e0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/service/Impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/service/Impl/ArticleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/service/Impl/GifServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/service/Impl/GifServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/steverado/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/steverado/user_service/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,25 +37,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ArticleServiceApplication.executor": "Run",
-    "Application.FeedServiceApplication.executor": "Run",
-    "Application.GifServiceApplication.executor": "Run",
-    "Application.TeamworkServiceDiscoveryApplication.executor": "Run",
-    "Application.UserServiceApplication.executor": "Run",
-    "Maven.feed-service [clean,install].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/USER/IdeaProjects/teamwork-microservices-api",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ArticleServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FeedServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GifServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TeamworkServiceDiscoveryApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.feed-service [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/IdeaProjects/teamwork-microservices-api&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.FeedServiceApplication">
     <configuration name="ArticleServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>

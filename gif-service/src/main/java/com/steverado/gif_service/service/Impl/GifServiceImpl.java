@@ -17,6 +17,7 @@ import com.steverado.gif_service.service.GifService;
 import com.steverado.gif_service.util.FileUploadUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,6 +30,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class GifServiceImpl implements GifService {
 
     private final CloudinaryService cloudinaryService;
@@ -55,12 +57,15 @@ public class GifServiceImpl implements GifService {
 
     @Override
     public ResponseEntity<ApiResponse> saveGif(GifDto gifDto, MultipartFile file) {
+        log.info("Received request to create gif with title: {}", gifDto.getTitle());
 
         Long userId = getUserId();
 
         FileUploadUtil.assertAllowed(file, FileUploadUtil.IMAGE_PATTERN);
+        log.debug("Image pattern: {}", FileUploadUtil.IMAGE_PATTERN);
 
         final String image_url = cloudinaryService.uploadFile(file);
+        log.info("image url: {}", image_url);
 
         Gif gif = new Gif();
         gif.setTitle(gifDto.getTitle());
@@ -80,12 +85,14 @@ public class GifServiceImpl implements GifService {
         data.setImageUrl(gif.getImageUrl());
 
         ApiResponse<DataGifResponse> response = new ApiResponse<>("Success", data);
+        log.info("Returning CREATED response for article '{}'", gif.getTitle());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @Override
     public ResponseEntity<ApiResponse> deleteGifById(Long id) {
+        log.info("Received request to delete gif with id: {}", id);
 
         Long userId = getUserId();
 
@@ -111,6 +118,7 @@ public class GifServiceImpl implements GifService {
             ResponseEntity<User> response = restTemplate.exchange(url, HttpMethod.GET, entity, User.class);
 
             User user = response.getBody();
+            log.info("userId: {}", user.getId());
 
             if (user.getRole() != Role.ADMIN && user.getId() != userId) {
                 throw new NotAdminException("FORBIDDEN!");
@@ -127,7 +135,7 @@ public class GifServiceImpl implements GifService {
         data.setMessage("gif post successfully deleted");
 
         ApiResponse<DeleteDataResponse> response = new ApiResponse<>("Success", data);
-
+        log.info("Returning DELETED response for article '{}'", existingGif.get().getTitle());
         return ResponseEntity.ok(response);
     }
 

@@ -8,6 +8,7 @@ import com.steverado.feed_service.response.ApiResponse;
 import com.steverado.feed_service.service.FeedService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -21,6 +22,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class FeedServiceImpl implements FeedService {
@@ -33,6 +35,7 @@ public class FeedServiceImpl implements FeedService {
 
     @Override
     public ResponseEntity<ApiResponse> viewAllArticlesAndGifs(int page, int size) {
+        log.info("Received request to view articles and gifs with content size: {}", size);
 
         //created an empty list
         List<FeedItemDto> feed = new ArrayList<>();
@@ -95,6 +98,7 @@ public class FeedServiceImpl implements FeedService {
         }
 
         List<FeedItemDto> paginatedFeed = feed.subList(start, end);
+        log.info("Received request to view articles and gifs with content size: {}", paginatedFeed);
 
         return ResponseEntity.ok(new ApiResponse("success", paginatedFeed));
     }

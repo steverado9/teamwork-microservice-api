@@ -4,7 +4,6 @@ import com.steverado.user_service.dto.LoginUserDto;
 import com.steverado.user_service.dto.RegisterUserDto;
 import com.steverado.user_service.entity.User;
 import com.steverado.user_service.response.ApiResponse;
-import com.steverado.user_service.service.JwtService;
 import com.steverado.user_service.service.UserService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +16,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
-@Slf4j
 public class UserController {
 
     private final UserService userService;

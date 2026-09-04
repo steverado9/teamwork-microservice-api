@@ -16,6 +16,7 @@ import com.steverado.article_service.service.ArticleService;
 import com.steverado.article_service.service.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,6 +27,7 @@ import java.util.List;
 import java.util.Optional;
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ArticleServiceImpl implements ArticleService {
 
     private final JwtService jwtService;
@@ -87,6 +89,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public ResponseEntity<ApiResponse> saveArticle(ArticleDto articleDto) {
+        log.info("Received request to create article with title: {}", articleDto.getTitle());
 
         Long userId = getUserId();
 
@@ -96,6 +99,7 @@ public class ArticleServiceImpl implements ArticleService {
         articleRepository.saveArticle(article.getTitle(), article.getContent(), article.getUserId());
 
         Optional<Article> savedArticle = articleRepository.findArticleByUserId(userId);
+        log.info("Article saved successfully with userId and articleId: {} (id={})", savedArticle.get().getUserId(), savedArticle.get().getId());
 
         DataArticleResponse data = new DataArticleResponse();
         data.setMessage("Article successfully posted");
@@ -109,6 +113,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public ResponseEntity<ApiResponse> updateArticle(Long articleId, ArticleDto article) {
+        log.info("Received request to update article with title: {} (and id={})", article.getTitle(), articleId);
 
         //get existing article with id
         Article existingArticle = getArticleById(articleId).orElseThrow();
@@ -148,14 +153,17 @@ public class ArticleServiceImpl implements ArticleService {
         data.setTitle(existingArticle.getTitle());
 
         ApiResponse apiResponse = new ApiResponse("Success", data);
+        log.info("Returning UPDATED response for article '{}'", existingArticle.getTitle());
         return ResponseEntity.ok(apiResponse);
     }
 
     @Override
     public ResponseEntity<ApiResponse> deleteArticle(Long articleId) {
+        log.info("Received request to delete article with id: {}", articleId);
 
         //get existing article with id
         Article existingArticle = getArticleById(articleId).orElseThrow();
+        log.info("Existing article: {}", existingArticle.getTitle());
 
         Long existingUserId = existingArticle.getUserId();
 
@@ -174,6 +182,7 @@ public class ArticleServiceImpl implements ArticleService {
             ResponseEntity<User> response = restTemplate.exchange(url, HttpMethod.GET, entity, User.class);
 
             User user = response.getBody();
+            log.info("User's email: {}", user.getEmail());
 
             if (user.getRole() != Role.ADMIN && user.getId() != existingUserId) {
                 throw new NotAdminException("FORBIDDEN!");
@@ -195,8 +204,10 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public ResponseEntity<ApiResponse> getArticleAndCommentById(Long articleId) {
+        log.info("Get article and comments using article id: {}", articleId);
 
         Article article = getArticleById(articleId).orElseThrow();
+        log.info("article title: {}", article.getTitle());
 
         List<ArticleComment> comments = commentRepository.getAllCommentsByArticleId(articleId);
 
@@ -214,6 +225,7 @@ public class ArticleServiceImpl implements ArticleService {
 
         ApiResponse response = new ApiResponse("success", data);
 
+        log.info("Returning Article and comments response for article title '{}'", article.getTitle());
         return ResponseEntity.ok(response);
     }
 
