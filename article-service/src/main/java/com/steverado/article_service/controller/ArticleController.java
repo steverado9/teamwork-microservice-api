@@ -55,6 +55,7 @@ public class ArticleController {
 
     @GetMapping()
     public List<Article> viewAllArticles() {
+
         return articleService.getAllArticles();
     }
 }

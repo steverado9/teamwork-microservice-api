@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5467d915-fb60-47ad-95be-45bd16857e0b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/service/Impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/service/Impl/ArticleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/controller/ArticleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/entity/ArticleComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/entity/ArticleComment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/mappers/CommentItemsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/mappers/CommentItemsMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/service/Impl/GifServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/service/Impl/GifServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/steverado/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/steverado/user_service/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/util/FileUploadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/util/FileUploadUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,26 +39,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ArticleServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.FeedServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.GifServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TeamworkServiceDiscoveryApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.feed-service [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/IdeaProjects/teamwork-microservices-api&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ArticleServiceApplication.executor": "Debug",
+    "Application.FeedServiceApplication.executor": "Run",
+    "Application.GifServiceApplication.executor": "Debug",
+    "Application.TeamworkServiceDiscoveryApplication.executor": "Run",
+    "Application.UserServiceApplication.executor": "Run",
+    "Maven.feed-service [clean,install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/USER/IdeaProjects/teamwork-microservices-api",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
-  <component name="RunManager" selected="Application.FeedServiceApplication">
+}]]></component>
+  <component name="RunManager" selected="Application.GifServiceApplication">
     <configuration name="ArticleServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="security.jwt.secret-key" value="3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007" />
@@ -150,10 +153,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FeedServiceApplication" />
         <item itemvalue="Application.GifServiceApplication" />
         <item itemvalue="Application.ArticleServiceApplication" />
         <item itemvalue="Application.UserServiceApplication" />
+        <item itemvalue="Application.FeedServiceApplication" />
         <item itemvalue="Application.TeamworkServiceDiscoveryApplication" />
       </list>
     </recent_temporary>
@@ -167,5 +170,41 @@
       <updated>1787610307886</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="ex" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

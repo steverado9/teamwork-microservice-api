@@ -8,7 +8,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CommentItemsMapper {
 
-    @Mapping(source = "id", target = "commentId")
     @Mapping(source = "userId", target = "authorId")
     CommentItemsDto articleComment(ArticleComment comment);
 }

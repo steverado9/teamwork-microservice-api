@@ -24,16 +24,17 @@ public class FileUploadUtil {
     }
 
     public static void assertAllowed(MultipartFile file, String pattern) {
-        final long size = file.getSize();
-        if (size > MAX_FILE_SIZE ) {
-            throw new UnsupportedOperationException("Max file size is 2mb");
-        }
 
-        final String fileName = file.getOriginalFilename();
-        final String extension = FilenameUtils.getExtension(fileName);
-        if (!isAllowedExtension(fileName, pattern)) {
-            throw new UnsupportedOperationException("Only jpg, png, gif, bop files are allowed");
-        }
+            final long size = file.getSize();
+            if (size > MAX_FILE_SIZE ) {
+                throw new UnsupportedOperationException("Max file size is 2mb");
+            }
+
+            final String fileName = file.getOriginalFilename();
+            final String extension = FilenameUtils.getExtension(fileName);
+            if (!isAllowedExtension(fileName, pattern)) {
+                throw new UnsupportedOperationException("Only jpg, png, gif, bmp files are allowed");
+            }
     }
 
     public static String getFileName(final String name) {
