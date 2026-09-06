@@ -26,6 +26,7 @@ public class FileUploadUtil {
     public static void assertAllowed(MultipartFile file, String pattern) {
 
             final long size = file.getSize();
+        System.out.println("file size -> : " + size);
             if (size > MAX_FILE_SIZE ) {
                 throw new UnsupportedOperationException("Max file size is 2mb");
             }

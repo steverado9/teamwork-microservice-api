@@ -61,10 +61,6 @@ public class GifServiceImpl implements GifService {
 
         Long userId = getUserId();
 
-//        System.out.println("file -> :" + file);
-//        FileUploadUtil.assertAllowed(file, FileUploadUtil.IMAGE_PATTERN);
-//        log.debug("Image pattern: {}", FileUploadUtil.IMAGE_PATTERN);
-
         final String image_url = cloudinaryService.uploadFile(file);
         log.info("image url: {}", image_url);
 
