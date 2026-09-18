@@ -40,7 +40,7 @@ public class GifController {
     }
 
     //post comments on gif
-    @PostMapping("/gifs/{gifId}/comment")
+    @PostMapping("/gifs/{gifId}/comments")
     public ResponseEntity<ApiResponse> postComment(@PathVariable Long gifId, @Valid @RequestBody CommentDto commentDto) {
         return gifCommentService.postComment(gifId, commentDto);
     }
@@ -52,7 +52,7 @@ public class GifController {
     }
 
     //get all gifs
-    @GetMapping()
+    @GetMapping("/gifs")
     public List<Gif> viewAllGifs() {
         return gifService.getAllGifs();
     }

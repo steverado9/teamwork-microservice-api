@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "gif_comments")
-@RequiredArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 public class GifComment {
@@ -21,7 +21,7 @@ public class GifComment {
     private Long id;
 
     @Column(name = "comment", nullable = false)
-    private final String comment;
+    private String comment;
 
     @Column(name = "gif_id", nullable = false)
     private Long gifId;
@@ -32,4 +32,8 @@ public class GifComment {
     @CreationTimestamp
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+
+    public GifComment(String comment) {
+        this.comment = comment;
+    }
 }

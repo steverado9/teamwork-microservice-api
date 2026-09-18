@@ -1,5 +1,6 @@
 package com.steverado.gif_service.service.Impl;
 
+import com.steverado.gif_service.dto.CommentItemsDto;
 import com.steverado.gif_service.dto.GifDto;
 import com.steverado.gif_service.entity.Gif;
 import com.steverado.gif_service.entity.GifComment;
@@ -7,8 +8,10 @@ import com.steverado.gif_service.entity.User;
 import com.steverado.gif_service.enums.Role;
 import com.steverado.gif_service.exception.GifNotFoundException;
 import com.steverado.gif_service.exception.NotAdminException;
+import com.steverado.gif_service.mapper.CommentItemsMapper;
 import com.steverado.gif_service.reponse.ApiResponse;
 import com.steverado.gif_service.reponse.DataGifResponse;
+import com.steverado.gif_service.reponse.DataViewGifResponse;
 import com.steverado.gif_service.reponse.DeleteDataResponse;
 import com.steverado.gif_service.repository.GifCommentRepository;
 import com.steverado.gif_service.repository.GifRepository;
@@ -42,6 +45,8 @@ public class GifServiceImpl implements GifService {
     private final RestTemplate restTemplate;
 
     private final GifCommentRepository gifCommentRepository;
+
+    private final CommentItemsMapper commentItemsMapper;
 
 
     //get user id
@@ -138,13 +143,27 @@ public class GifServiceImpl implements GifService {
 
     @Override
     public ResponseEntity<ApiResponse> getGifAndCommentByGifId(Long gifId) {
+        log.info("Get gif and comments using article id: {}", gifId);
 
         Gif gif = getGifById(gifId).orElseThrow(() -> new GifNotFoundException("Gif not found"));
+        log.info("gif title: {}", gif.getTitle());
 
         List<GifComment> comments = gifCommentRepository.getAllCommentsByGifId(gifId);
 
+        List<CommentItemsDto> gifComments = comments.stream()
+                .map(commentItemsMapper::gifComment)
+                .toList();
 
-        return null;
+        DataViewGifResponse data = new DataViewGifResponse();
+        data.setId(gif.getId());
+        data.setCreatedOn(gif.getCreatedAt());
+        data.setTitle(gif.getTitle());
+        data.setUrl(gif.getImageUrl());
+        data.setComments(gifComments);
+
+        ApiResponse response = new ApiResponse("success", data);
+        log.info("Returning Gif and comments response for gif title '{}'", gif.getTitle());
+        return ResponseEntity.ok(response);
     }
 
     @Override

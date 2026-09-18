@@ -26,7 +26,7 @@ public class GifCommentServiceImpl implements GifCommentService {
 
     private final CommentMapper commentMapper;
 
-    private GifCommentRepository gifCommentRepository;
+    private final GifCommentRepository gifCommentRepository;
 
     @Override
     public ResponseEntity<ApiResponse> postComment(Long gifId, CommentDto commentDto) {
