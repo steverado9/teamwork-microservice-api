@@ -6,6 +6,7 @@ import com.steverado.article_service.entity.Article;
 import com.steverado.article_service.entity.ArticleComment;
 import com.steverado.article_service.entity.User;
 import com.steverado.article_service.enums.Role;
+import com.steverado.article_service.exception.ArticleNotFoundException;
 import com.steverado.article_service.exception.NotAdminException;
 import com.steverado.article_service.mappers.ArticleMapper;
 import com.steverado.article_service.mappers.CommentItemsMapper;
@@ -116,7 +117,7 @@ public class ArticleServiceImpl implements ArticleService {
         log.info("Received request to update article with title: {} (and id={})", article.getTitle(), articleId);
 
         //get existing article with id
-        Article existingArticle = getArticleById(articleId).orElseThrow();
+        Article existingArticle = getArticleById(articleId).orElseThrow(() -> new ArticleNotFoundException("article not found"));
 
         Long existingUserId = existingArticle.getUserId();
 
@@ -162,7 +163,7 @@ public class ArticleServiceImpl implements ArticleService {
         log.info("Received request to delete article with id: {}", articleId);
 
         //get existing article with id
-        Article existingArticle = getArticleById(articleId).orElseThrow();
+        Article existingArticle = getArticleById(articleId).orElseThrow(() -> new ArticleNotFoundException("article not found"));
         log.info("Existing article: {}", existingArticle.getTitle());
 
         Long existingUserId = existingArticle.getUserId();
@@ -206,7 +207,7 @@ public class ArticleServiceImpl implements ArticleService {
     public ResponseEntity<ApiResponse> getArticleAndCommentById(Long articleId) {
         log.info("Get article and comments using article id: {}", articleId);
 
-        Article article = getArticleById(articleId).orElseThrow();
+        Article article = getArticleById(articleId).orElseThrow(() -> new ArticleNotFoundException("article not found"));
         log.info("article title: {}", article.getTitle());
 
         List<ArticleComment> comments = commentRepository.getAllCommentsByArticleId(articleId);

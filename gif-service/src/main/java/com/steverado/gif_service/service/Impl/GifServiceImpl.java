@@ -98,13 +98,9 @@ public class GifServiceImpl implements GifService {
 
         Long userId = getUserId();
 
-        Optional<Gif> existingGif = getGifById(id);
+        Gif existingGif = getGifById(id).orElseThrow(() -> new GifNotFoundException("Gif not found"));
 
-        if (existingGif.isEmpty()) {
-            return null;
-        }
-
-        Long existingGifId = existingGif.get().getId();
+        Long existingGifId = existingGif.getId();
 
         String url = "http://user-service/auth/" + userId;
 
@@ -137,7 +133,7 @@ public class GifServiceImpl implements GifService {
         data.setMessage("gif post successfully deleted");
 
         ApiResponse<DeleteDataResponse> response = new ApiResponse<>("Success", data);
-        log.info("Returning DELETED response for article '{}'", existingGif.get().getTitle());
+        log.info("Returning DELETED response for article '{}'", existingGif.getTitle());
         return ResponseEntity.ok(response);
     }
 

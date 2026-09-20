@@ -65,7 +65,7 @@ public class FeedServiceImpl implements FeedService {
         }
 
         //get all the gifs
-        String gifUrl = "http://article-service/gifs";
+        String gifUrl = "http://gif-service/gifs";
 
         String authorizationHeader2 = request.getHeader("Authorization");
 
