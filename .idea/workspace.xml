@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5467d915-fb60-47ad-95be-45bd16857e0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/exception/ArticleNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/steverado/user_service/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/service/Impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/service/Impl/ArticleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/service/Impl/FeedServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/service/Impl/FeedServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/service/Impl/GifServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/service/Impl/GifServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/article-service/src/main/java/com/steverado/article_service/controller/ArticleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/controller/FeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/controller/FeedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gif-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/steverado/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/steverado/user_service/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +50,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.ArticleServiceApplication.executor": "Run",
-    "Application.FeedServiceApplication.executor": "Debug",
+    "Application.FeedServiceApplication.executor": "Run",
     "Application.GifServiceApplication.executor": "Run",
     "Application.TeamworkServiceDiscoveryApplication.executor": "Run",
     "Application.UserServiceApplication.executor": "Run",
@@ -178,32 +184,32 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java</url>
-          <line>31</line>
+          <line>42</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java</url>
-          <line>38</line>
+          <line>49</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java</url>
-          <line>44</line>
+          <line>55</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java</url>
-          <line>50</line>
+          <line>61</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gif-service/src/main/java/com/steverado/gif_service/controller/GifController.java</url>
-          <line>56</line>
+          <line>67</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/feed-service/src/main/java/com/steverado/feed_service/controller/FeedController.java</url>
-          <line>18</line>
+          <line>29</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

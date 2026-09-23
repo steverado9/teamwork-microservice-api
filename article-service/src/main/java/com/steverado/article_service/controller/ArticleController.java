@@ -6,6 +6,10 @@ import com.steverado.article_service.entity.Article;
 import com.steverado.article_service.response.ApiResponse;
 import com.steverado.article_service.service.ArticleCommentService;
 import com.steverado.article_service.service.ArticleService;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +20,13 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/articles")
+@SecurityScheme(
+        name = "bearerAuth",
+        scheme = "bearer",
+        type = SecuritySchemeType.HTTP,
+        in = SecuritySchemeIn.HEADER
+)
+@SecurityRequirement(name = "bearerAuth")
 public class ArticleController {
 
     private final ArticleService articleService;

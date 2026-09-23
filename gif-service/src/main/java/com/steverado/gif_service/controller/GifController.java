@@ -6,6 +6,10 @@ import com.steverado.gif_service.entity.Gif;
 import com.steverado.gif_service.reponse.ApiResponse;
 import com.steverado.gif_service.service.GifCommentService;
 import com.steverado.gif_service.service.GifService;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -17,6 +21,13 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@SecurityScheme(
+        name = "bearerAuth",
+        scheme = "bearer",
+        type = SecuritySchemeType.HTTP,
+        in = SecuritySchemeIn.HEADER
+)
+@SecurityRequirement(name = "bearerAuth")
 public class GifController {
 
     private final GifService gifService;
