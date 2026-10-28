@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,10 +36,10 @@ public class GifController {
     private final GifCommentService gifCommentService;
 
     //post gif
-    @PostMapping(path = "/gifs",  consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(path = "/gifs",  consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     private ResponseEntity<ApiResponse> postGif(
-            @Valid @ModelAttribute GifDto gifDto,
-            @RequestPart MultipartFile file
+            @Valid @ParameterObject @ModelAttribute GifDto gifDto,
+            @RequestPart("file") MultipartFile file
     ) {
         return gifService.saveGif(gifDto, file);
     }
